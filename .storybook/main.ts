@@ -5,19 +5,28 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    '@storybook/addon-a11y'
   ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
   docs: {
     autodocs: "tag",
   },
-  viteFinal:(config, {configType})=>{
-    if(configType ==='PRODUCTION'){
-      config.base = 'Ignite-Lab-3.0-Design-System'
+  "features": {
+    "storyStoreV7": true
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/Ignite-Lab-3.0-Design-System/'
     }
     return config
   }
 };
 export default config;
+
+
